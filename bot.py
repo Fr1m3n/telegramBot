@@ -72,7 +72,7 @@ def _main():
     last_id = None
     while 1 == 1:
         if message == get_text(last_update(get_updates_json())):
-            print(message)
+            #print(message)
             continue
         now = time.localtime()
         if(min(now[4] - weather_update_time, now[4] + 60 - weather_update_time) >= 7 or time.localtime()[4] <= 8):
