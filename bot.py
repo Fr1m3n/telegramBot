@@ -59,14 +59,14 @@ def convert(fhar):
 
 
 def generate_temp(weather):
-    return ('--Ставрополь--\nТемпература = %.2f С°. \nСкорость ветра - %.2f. \nДавление - %.2f. \nУдачного дня!' % (get_temp(weather), weather["wind"]["speed"], weather["main"]["pressure"]))
+    return ('--Ставрополь--\nТемпература: %.2f С°. \nСкорость ветра: %.2f. \nДавление: %.2f. \nУдачного дня!' % (get_temp(weather), weather["wind"]["speed"], weather["main"]["pressure"]))
 
 #min - 4
 
 def _main():
     weather = get_weather_by_id(city_id)
-    weather_update_time = time.localtime()
-    print(weather_update_time[4])
+    weather_update_time = time.localtime()[4]
+    #print(weather_update_time[4])
     temp = get_temp(weather)
     message = ''
     last_id = None
@@ -74,6 +74,10 @@ def _main():
         if message == get_text(last_update(get_updates_json())):
             print(message)
             continue
+        now = time.localtime()
+        if(min(now[4] - weather_update_time, now[4] + 60 - weather_update_time) >= 7 or time.localtime()[4] <= 8):
+            weather = get_weather_by_id(city_id)
+            weather_update_time = now[4]
         last_id = get_id(last_update(get_updates_json()))
         message = get_text(last_update(get_updates_json()))
         if (message in hi):
@@ -88,6 +92,6 @@ def _main():
 
 if __name__ == "__main__":
     _main()
-weather = get_weather_by_id(city_id)
-print(json.dumps(weather, indent=4))
+#weather = get_weather_by_id(city_id)
+#print(json.dumps(weather, indent=4))
 #print(get_text(last_update(get_updates_json())))
