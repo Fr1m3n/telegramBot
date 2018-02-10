@@ -88,6 +88,7 @@ def _main():
             send_mes(last_id, 'Отправь мне сообщение \'Погода\'.')
         else:
             send_mes(last_id, 'Я тебя не понимаю :c\nОтправь \'Помощь\'.')
+        time.sleep(3)
 
 
 if __name__ == "__main__":
