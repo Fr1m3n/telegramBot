@@ -35,6 +35,7 @@ def get_updates_json():
 
 
 def send_mes(id, text):
+    print(id)
     params = {"chat_id": id, "text": text}
     res = requests.post(url_bot + '/sendMessage', data=params)
 
