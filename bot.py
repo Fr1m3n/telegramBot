@@ -13,7 +13,7 @@ help = {'Помощь', 'помощь', 'help'}
 #Множества слов для определения операции
 
 
-url_bot = "https://api.telegram.org/bot536135996:AAFPk1NDzmbjolFSdCd64KDj-UsBAvracnY"
+url_bot = "https://api.telegram.org/"
 url_weather = "https://api.openweathermap.org/data/2.5/weather"
 city_id = 487839
 weather_token = "71d5c90dcb320f0e49bcb8af0c50fb41"
